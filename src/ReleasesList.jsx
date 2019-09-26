@@ -10,30 +10,49 @@ const ReleasesList = (props) => {
   if (error) return <div>{error}</div>
 
   return (
-    <div className="flex flex-wrap">
-      {releases.items.length > 0 &&
-        releases.items.map(item =>
-          <div key={item.id} className="flex-grow m-6">
-            <div className="max-w-2 m-6 mx-auto">
-              <div className="flex items-center justify-center">
-                  <div className=" w-full">
-                    <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-                      <div className="bg-cover bg-center m-2 p-4">
-                        <a
-                          href={item.external_urls.spotify}
-                          className="text-black"
-                          target="_blank"
-                          rel="noopener noreferrer">
-                        <img className="max-w-full" width="640px" src={item.images[0].url} alt="" />
-                          {item.name}</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div className="container my-12 mx-auto px-4 md:px-12">
+      <div className="flex flex-wrap -mx-1 lg:-mx-4">
+        {releases.items &&
+          releases.items.length > 0 &&
+          releases.items.map(item =>
+
+            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3" key={item.id}>
+
+              <article className="overflow-hidden rounded-lg shadow-lg bg-white">
+
+                <a
+                  href={item.external_urls.spotify}
+                  className="text-black"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img className="max-w-full" width="640px" src={item.images[0].url} alt="" />
+                </a>
+
+                <header className="flex items-center justify-between leading-tight p-2 md:p-4">
+                  <h1 className=" text-lg text-left">
+                    <a className="no-underline hover:underline text-black truncate" href={item.external_urls.spotify}>
+                      {item.name}
+                    </a>
+                    <p className="text-black text-sm uppercase pt-2">
+                      {item.type}
+                    </p>
+                  </h1>
+
+                </header>
+
+                <footer className="flex items-center justify-between leading-none p-2 md:p-4">
+                  <a className="flex items-center no-underline hover:underline text-black" href={item.artists[0].external_urls.spotify}>
+                    <p className="text-sm">
+                      {item.artists[0].name}
+                    </p>
+                  </a>
+                </footer>
+
+              </article>
             </div>
-        )
-      }
+          )
+        }
+      </div>
     </div>
   )
 }

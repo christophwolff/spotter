@@ -20,9 +20,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+
         <img src={logo} className="App-logo mt-6" alt="logo" />
+        <h1 className="font-semibold text-xl tracking-tight mt-3 text-white">Spotify's New Releases</h1>
         {window.location.hash.length > 0 ? (
-          <ReleasesList headers={headers}/>
+          <ReleasesList headers={headers} />
       ) : (
         <LoginButton />
       )}
@@ -34,12 +36,10 @@ function App() {
 function LoginButton(props) {
   return (
     <a
-      className="App-link"
+      className="Spotify-button text-gray-300 font-bold py-2 px-4 mt-6"
       href={`https://accounts.spotify.com/authorize?response_type=token&client_id=${config.clientID}&redirect_uri=http://localhost:3001`}
-      target="_blank"
-      rel="noopener noreferrer"
     >
-      Login to Spotify
+      Login with Spotify.
     </a>
   )
 }
