@@ -6,7 +6,10 @@ import './App.css';
 import config from './config.js'
 import ReleasesList from './ReleasesList'
 
-
+let baseUrl = 'https://quirky-mahavira-1f6e67.netlify.com'
+if (process.env.NODE_ENV === 'development') {
+  baseUrl = 'http://localhost:3000'
+}
 function App() {
   let headers;
   if (window.location.hash.length > 0) {
@@ -37,7 +40,7 @@ function LoginButton(props) {
   return (
     <a
       className="Spotify-button text-gray-300 font-bold py-2 px-4 mt-6"
-      href={`https://accounts.spotify.com/authorize?response_type=token&client_id=${config.clientID}&redirect_uri=http://localhost:3001`}
+      href={`https://accounts.spotify.com/authorize?response_type=token&client_id=${config.clientID}&redirect_uri=${baseUrl}`}
     >
       Login with Spotify.
     </a>
