@@ -1,5 +1,4 @@
 import React from 'react';
-import { getHashParams } from './helper.js'
 import logo from './logo.svg';
 import './styles/tailwind.css';
 import './App.css';
@@ -11,23 +10,14 @@ if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:3000'
 }
 function App() {
-  let headers;
-  if (window.location.hash.length > 0) {
-      const info = getHashParams(window.location.hash)
-      headers = {
-      headers: {
-        'Authorization': 'Bearer ' + info.access_token
-      }
-    }
-  }
+
   return (
     <div className="App">
       <header className="App-header">
-
         <img src={logo} className="App-logo mt-6" alt="logo" />
         <h1 className="font-semibold text-xl tracking-tight mt-3 text-white">Spotify's New Releases</h1>
         {window.location.hash.length > 0 ? (
-          <ReleasesList headers={headers} />
+          <ReleasesList />
       ) : (
         <LoginButton />
       )}

@@ -28,14 +28,11 @@ const ReleasesList = (props) => {
                   <img className="max-w-full" width="640px" src={item.images[0].url} alt="" />
                 </a>
 
-                <header className="flex items-center justify-between leading-tight p-2 md:p-4">
+                <header className="flex items-center justify-between leading-tight p-2 md:px-4">
                   <h1 className=" text-lg text-left">
-                    <a className="no-underline hover:underline text-black truncate" href={item.external_urls.spotify}>
+                    <a className="no-underline hover:underline text-black" href={item.external_urls.spotify}>
                       {item.name}
                     </a>
-                    <p className="text-black text-sm uppercase pt-2">
-                      {item.type}
-                    </p>
                   </h1>
 
                 </header>
