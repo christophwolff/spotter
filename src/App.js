@@ -5,7 +5,7 @@ import './App.css';
 import config from './config.js'
 import ReleasesList from './ReleasesList'
 
-let baseUrl = 'https://quirky-mahavira-1f6e67.netlify.com'
+let baseUrl = 'https://spotifynews.netlify.com'
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:3000'
 }
